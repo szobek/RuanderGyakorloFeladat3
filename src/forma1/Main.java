@@ -1,9 +1,13 @@
 package forma1;
 
-public class Main {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Main {
+static List<Pilota> pilotak = new ArrayList<Pilota>();
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+
 
 	}
 
