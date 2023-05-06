@@ -21,4 +21,36 @@ public class Pilota {
 		}
 
 	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+
+	public int getNum() {
+		return num;
+	}
+
+
+
+	public boolean isActive() {
+		return isActive;
+	}
+	
+	
 }
