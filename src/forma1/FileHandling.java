@@ -15,7 +15,7 @@ public class FileHandling {
 			while (br.ready()) {
 				pilotak.add(new Pilota(br.readLine().split(delimiter)));
 			}
-			System.out.println("sikeres fájlolvsás");
+			
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("Rossz fájl kódolás");
 		} catch (FileNotFoundException e) {

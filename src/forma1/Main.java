@@ -11,15 +11,12 @@ public class Main {
 	static List<Pilota> pilotak = new ArrayList<Pilota>();
 
 	public static void main(String[] args) {
-		System.out.println("2. feladat");
+		
 		new FileHandling().readFile("pilotak.csv ", ";", pilotak);
-		System.out.println();
-		System.out.println("3. feladat:");
-		System.out.println(pilotak.size() + " adat van");
-		System.out.println();
-		System.out.println("4. feladat:");
+		System.out.print("3. feladat: ");
+		System.out.println(pilotak.size() );
+		System.out.print("4. feladat: ");
 		System.out.println(pilotak.get(pilotak.size() - 1).getName());
-		System.out.println();
 		System.out.println("5. feladat:");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.mm.dd");
 		List<Pilota> oregek = new ArrayList<Pilota>();
@@ -37,10 +34,9 @@ public class Main {
 
 		}
 		for (Pilota pilota : oregek) {
-			System.out.println(pilota.getName() + " " + pilota.getBirthDate());
+			System.out.println("\t"+pilota.getName() + " ( " + pilota.getBirthDate()+" )");
 		}
-		System.out.println();
-		System.out.println("6.. feladat");
+		System.out.print("6.. feladat");
 		int min = 0;
 		for (int i = 1; i < pilotak.size(); i++) {
 			if (!String.valueOf(pilotak.get(i).getNum()).isEmpty() && pilotak.get(i).getNum() != 0
@@ -48,10 +44,10 @@ public class Main {
 				min = i;
 			}
 		}
-		System.out.println(pilotak.get(min).getCountry() + " " + pilotak.get(min).getName());
-		System.out.println();
-		System.out.println("7. feladat");
+		System.out.println(pilotak.get(min).getCountry() );
+		System.out.print("7. feladat: ");
 		Map<Integer,Integer> rajtszamokLista = new HashMap<Integer,Integer>();
+		
 		for (Pilota pilota : pilotak) {
 			if(rajtszamokLista.containsKey(pilota.getNum())) {
 				rajtszamokLista.replace(pilota.getNum(), rajtszamokLista.get(pilota.getNum())+1);
@@ -59,11 +55,14 @@ public class Main {
 				rajtszamokLista.put(pilota.getNum(), 1);
 			}
 		}
+		String eredmeny = "";
 		for(Map.Entry<Integer, Integer> rajtszam: rajtszamokLista.entrySet()) {
-			if(rajtszam.getValue() >1) {
-				System.out.print(rajtszam.getKey()+" ");	
+			if(rajtszam.getValue() >1 && rajtszam.getKey()!=0) { // a 0 kizárandó mert ahol nincs érték alapértelmezetten 0 a key
+				eredmeny+=rajtszam.getKey()+", ";	
 			}
 			
 		}
+		System.out.println(eredmeny.substring(0, eredmeny.length()-2));
+		
 	}
 }
